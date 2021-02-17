@@ -1,24 +1,39 @@
 {% extends "layout.html" %}
 {% block title %}Create Event{% endblock %}
 {% block body %}
-<h2>Event</h2>
+<h2>New Event</h2>
 {% if error %}<div class="error"><strong>Error!</strong> {{ error }} </div> {% endif %}
-<form action="" method="post">
-    <dl>
-        <dt>Title:
-            <dd><input type="text" name="title" size="30">
-        <dt>Description:
-            <dd><input class="desc-box" type="text" name="description" size="60">
-         <dt>Start-Time:
-            <dd><input type="datetime-local" id="meeting-time" name="start-time" value="2020-10-12T1:30"
+<form action="" method="post" class="event-form">
+    <table class="center">
+        <tr>
+        <td align="left">Event Title</td>
+            </tr>
+            <tr>
+            <td align="left"><input type="text" name="title" id="title-box"></td>
+            </tr>
+            <tr>
+        <td align="left">Description</td>
+        </tr>
+        <tr>
+            <td align="left"><input id="desc-box" type="text" name="description"></td>
+            </tr>
+            <tr>
+         <td align="left">Start-Time:</td>
+        </tr>
+        <tr>
+            <td align="left"><input type="datetime-local" id="meeting-time" name="start-time" value="2020-10-12T1:30"
  min="2018-06-05T00:00" max="2024-06-14T00:00">
-        </dt>
-        <dt>End-Time:
-            <dd><input type="datetime-local" id="meeting-time" name="end-time" value="2020-10-12T1:30"
- min="2018-06-07T00:00" max="2024-06-14T00:00"></dd>
-        </dt> 
-    </dl>
-    <div><input type="submit" value="Create Event" class="dstyle"></div>
+            </td>
+    </tr>
+    <tr>
+        <td align="left">End-Time:</td>
+        </tr>
+        <tr>
+            <td align="left"><input type="datetime-local" id="meeting-time" name="end-time" value="2020-10-12T1:30"
+ min="2018-06-07T00:00" max="2024-06-14T00:00" size="30"></dd>
+            </td> 
+    </tr>
+    </table>
+    <div><input type="submit" value="Create Event" class="dstyle" size="30"></div>
 </form>
-
 {% endblock %}

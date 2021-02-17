@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<title>{% block title %}Welcome{% endblock %} | Events</title>
+<title>{% block title %}Event Flask App{% endblock %}</title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://use.fontawesome.com/671e73568d.js"></script>
 <div class="page">
-    <h1 class="title">Event Viewer</h1>
+    <h1 class="title">EVENTR <i class="fa fa-calendar" aria-hidden="true"></i></h1>
     <div class="navigation">
     {% if  g.user %}
         <a href="{{ url_for('mainPage') }}">My Events</a> | 
-        <a href="{{ url_for('logout') }}">Logout</a> 
+        <a href="{{ url_for('logout') }}">Logout</a>
     {% else %}
         <a href="{{ url_for('mainPage') }}">All Events</a> | 
         <a href="{{ url_for('register') }}">Sign up</a> | 

@@ -9,8 +9,8 @@
             {% if g.user.user_id == event.host_id %}
                 <h3 class="event-style">{{ event.title }}</h3>
                 <p>{{ event.description }}</p>
-                <p>{{ event.start_date }}</p>
-                <p>{{ event.end_date }}</p>
+                <p>From: {{ event.start_date }}</p>
+                <p>To: {{ event.end_date }}</p>
                 <div class="button"><a href="{{ url_for('cancel_event',event_id=event.event_id) }}">
                     <button class="cstyle">Cancel</button>
                 </a></div> 
@@ -27,8 +27,8 @@
                     {% endif %}
                 {% endfor %}
                 <p>{{ event.description }}</p>
-                <p>{{ event.start_date }}</p>
-                <p>{{ event.end_date }}</p>
+                <p>From: {{ event.start_date }}</p>
+                <p>To: {{ event.end_date }}</p>
                 <div><a class="btn" href="{{url_for('attend_event',event_id=event.event_id)}}">
                     <button class="bstyle">Attend</button>
                 </a></div>
@@ -44,8 +44,8 @@
                 {% endif %}
              {% endfor %}
             <p>{{ event.description }}</p>
-            <p>{{ event.start_date }}</p>
-            <p>{{ event.end_date }}</p>
+            <p>From: {{ event.start_date }}</p>
+            <p>To: {{ event.end_date }}</p>
             <div><a class="btn" href="{{ url_for('login') }}">
                 <button class="bstyle">Attend</button>
             </a></div>

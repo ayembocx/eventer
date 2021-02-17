@@ -1,13 +1,16 @@
+body{
+    background-color:#ADD8E6;
+}
 .page{
     text-align:center;
     background-color:#ADD8E6;
 }
 .top-space{
-    margin-top:2%;
     margin-bottom:2%;
 }
 .title{
-    padding-top:2%;
+    font-size: 60px;
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
 .navigation{
     font-size:20px;
@@ -37,6 +40,40 @@ font-size: 16px;
 margin: 4px 2px;
 cursor: pointer;
 }
+.event-style{
+    font-family:Helvetica;
+    font-size: 25px;
+    color:grey;
+    margin-top: 1%;
+    margin-bottom:1%;
+}
+.back-b{
+    color:#909090;
+    font-size:45px;
+}
+.register{
+    color: #909090;
+    font-size:45px;
+}
+.usern{
+    font-size:20px;
+    color:white;
+}
+.userp{
+    margin-top:1%;
+    font-size:20px;
+    color:white;
+}
+.userIn{
+    margin-top:5px;
+    border:none;
+    padding: 10px 10px;
+}
+.passIn{
+    margin-top:5px;
+    border:none;
+    padding: 10px 10px;
+}
 .dstyle{
     background-color: blue;
     border: none;
@@ -46,13 +83,24 @@ cursor: pointer;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin-top:10px;
     cursor: pointer;
 }
-.event-style{
-    font-family:Helvetica;
-    font-size: 25px;
-    color:grey;
-    margin-top: 1%;
-    margin-bottom:1%;
+#title-box{
+    border-color:#909090;
+    background-color:#ADD8E6;
+    height:20px;
+}
+#desc-box{
+    border-color:#909090;
+    background-color:#ADD8E6;
+    width:300px;
+    height:70px;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+#meeting-time{
+    background-color:#ADD8E6;
 }
