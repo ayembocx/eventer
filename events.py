@@ -19,6 +19,7 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(app.root_path, 'events.db'
 app.config.from_object(__name__)
 app.config.from_envvar('EVENTS_SETTINGS', silent=True)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #silence deprecation warning
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://oimskwnemoootj:5a8a9e9663ba14c9f024da0a5df3b9916e7aa9706696aacf8c743fff7fa545d3@ec2-54-144-251-233.compute-1.amazonaws.com:5432/db2rfikfllu7je'
 
 db.init_app(app)
 
