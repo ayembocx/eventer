@@ -28,7 +28,7 @@ db = SQLAlchemy(app)
 class User(db.Model): 
     user_id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(24), nullable=False)
-    pw_hashed = db.Column(db.String(64), nullable=False)
+    pw_hashed = db.Column(db.String(24), nullable=False)
 
     #1 to many with host and events
     #many to many with attendees and events
