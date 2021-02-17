@@ -84,9 +84,9 @@ def format_date(timestamp):
 
 @app.before_request
 def before_request():
-    g.user=None
+    User.query.filter_by(user_id=session['user_id']).first()=None
     if 'user_id' in session: 
-        g.user = User.query.filter_by(user_id=session['user_id']).first()
+        User.query.filter_by(user_id=session['user_id']).first() = User.query.filter_by(user_id=session['user_id']).first()
 
 @app.route('/')
 def mainPage(): 
@@ -98,7 +98,7 @@ def mainPage():
 
 @app.route('/<event_id>/attend')
 def attend_event(event_id): 
-    if not g.user: #if not logged in exit
+    if not User.query.filter_by(user_id=session['user_id']).first(): #if not logged in exit
         abort(401)
 
     if event_id is None: #if event id doesnt exist exit
@@ -108,21 +108,21 @@ def attend_event(event_id):
     event = Event.query.filter_by(event_id=event_id).first()
 
     #check if user trying to attend is host
-    if g.user.user_id == event.host_id:
+    if User.query.filter_by(user_id=session['user_id']).first().user_id == event.host_id:
         abort(401)
 
     #everything here doesnt work yet
-    attendeeList = event.attendees.filter_by(user_id=g.user.user_id).all()
+    attendeeList = event.attendees.filter_by(user_id=User.query.filter_by(user_id=session['user_id']).first().user_id).all()
 
     
 
     for u in attendeeList:
-        if g.user.user_id == u.user_id:
+        if User.query.filter_by(user_id=session['user_id']).first().user_id == u.user_id:
             flash('You were already attending that event!')
             return redirect(url_for('mainPage'))
 
    
-    event.attendees.append(g.user)
+    event.attendees.append(User.query.filter_by(user_id=session['user_id']).first())
         #commit to database
     db.session.commit()
     flash('You are now registered for this event')
@@ -137,7 +137,7 @@ def attend_event(event_id):
 
 @app.route('/<event_id>')
 def cancel_event(event_id): 
-    if not g.user: #if not logged in exit
+    if not User.query.filter_by(user_id=session['user_id']).first(): #if not logged in exit
         abort(401)
 
     if event_id is None: #if event id doesnt exist exit
@@ -148,7 +148,7 @@ def cancel_event(event_id):
     event = Event.query.filter_by(event_id=event_id).first()
 
     #check if user trying to cancel is not host
-    #if g.user.user_id != event.host_id:  
+    #if User.query.filter_by(user_id=session['user_id']).first().user_id != event.host_id:  
         #abort(401)
 
 
