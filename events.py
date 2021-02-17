@@ -204,7 +204,7 @@ def login():
         user = User.query.filter_by(username=request.form['username']).first()
         if user is None:
             error = 'Invalid username'
-        elif request.form['password'] != user.pw_hashed
+        elif request.form['password'] != user.pw_hashed:
             error = 'Invalid password'
         else:
             flash("You have been logged in!")
