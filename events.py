@@ -84,9 +84,9 @@ def format_date(timestamp):
 
 @app.before_request
 def before_request():
-    User.query.filter_by(user_id=session['user_id']).first()=None
+    g.user=None
     if 'user_id' in session: 
-        User.query.filter_by(user_id=session['user_id']).first() = User.query.filter_by(user_id=session['user_id']).first()
+        g.user = User.query.filter_by(user_id=session['user_id']).first()
 
 @app.route('/')
 def mainPage(): 
@@ -148,7 +148,7 @@ def cancel_event(event_id):
     event = Event.query.filter_by(event_id=event_id).first()
 
     #check if user trying to cancel is not host
-    #if User.query.filter_by(user_id=session['user_id']).first().user_id != event.host_id:  
+    #if g.user.user_id != event.host_id:  
         #abort(401)
 
 
