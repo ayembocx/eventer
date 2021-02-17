@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<title>{% block title %}Welcome{% endblock %} | Events</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+<div class="page">
+    <h1 class="title">Event Viewer</h1>
+    <div class="navigation">
+    {% if  g.user %}
+        <a href="{{ url_for('mainPage') }}">My Events</a> | 
+        <a href="{{ url_for('logout') }}">Logout</a> 
+    {% else %}
+        <a href="{{ url_for('mainPage') }}">All Events</a> | 
+        <a href="{{ url_for('register') }}">Sign up</a> | 
+        <a href="{{ url_for('login') }}">Log In</a> 
+    {% endif %}
+    </div>
+    {% with flashes  = get_flashed_messages() %}
+        {% if flashes %}
+            <ul class="flashes">
+            {% for message in flashes %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="body">
+    {% block body %} 
+    </div>
+    <div class="footer">
+        Eventz &mdash: A Flask Application
+    </div>
+    {% endblock %}

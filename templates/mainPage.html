@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block body %}
+    {% if g.user %}
+        <div class="top-space"><a class="btn" href="{{ url_for('create_event') }}">
+            <button class="dstyle">Create Event</button>
+        </a></div>
+        <h1>My Events</h1>
+        {% for event in events %}
+            {% if g.user.user_id == event.host_id %}
+                <h3 class="event-style">{{ event.title }}</h3>
+                <p>{{ event.description }}</p>
+                <p>{{ event.start_date }}</p>
+                <p>{{ event.end_date }}</p>
+                <div class="button"><a href="{{ url_for('cancel_event',event_id=event.event_id) }}">
+                    <button class="cstyle">Cancel</button>
+                </a></div> 
+            {% endif %}
+        {% endfor %}
+
+        <h1>Public Events</h1>
+        {% for event in events %}
+            {% if g.user.user_id != event.host_id %}
+                <h3 class="event-style">{{ event.title }}</h3>
+                {% for user in users %}
+                    {% if event.host_id == user.user_id %}
+                        <h5 class="event-style">By: {{ user.username }}</h5>
+                    {% endif %}
+                {% endfor %}
+                <p>{{ event.description }}</p>
+                <p>{{ event.start_date }}</p>
+                <p>{{ event.end_date }}</p>
+                <div><a class="btn" href="{{url_for('attend_event',event_id=event.event_id)}}">
+                    <button class="bstyle">Attend</button>
+                </a></div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <h1 class="back-b">Events</h1>
+        {% for event in events %}
+            <h3 class="event-style">{{ event.title }}</h3>
+            {% for user in users %}
+                {% if event.host_id == user.user_id %}
+                    <h5 class="event-style">By: {{ user.username }}</h5>
+                {% endif %}
+             {% endfor %}
+            <p>{{ event.description }}</p>
+            <p>{{ event.start_date }}</p>
+            <p>{{ event.end_date }}</p>
+            <div><a class="btn" href="{{ url_for('login') }}">
+                <button class="bstyle">Attend</button>
+            </a></div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

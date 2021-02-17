@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}Log In{% endblock %}
+{% block body %}
+<h2>Cancel this event</h2>
+
+<p>You want to cancel</p>
+<h4>{{ event.title }}</h4>
+
+<div><a class="cstyle" href="{{ url_for('cancel_confirm',event_id=event.event_id) }}">Cancel Event</a></div>
+{% endblock %}

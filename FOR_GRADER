@@ -1,0 +1,7 @@
+Use this file for any notes you would like to pass onto the grader.
+
+Everything should work as stated in requiremnts.
+
+One thing to note is that user can click attend button for events they didnt host as many times as they want
+but there is a check to see if they already registered to attend that event and if that is true a flash message pops
+up saying they already registered to attend event and then that user is not added to attendees table redundantly.

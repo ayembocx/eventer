@@ -1,0 +1,58 @@
+.page{
+    text-align:center;
+    background-color:#ADD8E6;
+}
+.top-space{
+    margin-top:2%;
+    margin-bottom:2%;
+}
+.title{
+    padding-top:2%;
+}
+.navigation{
+    font-size:20px;
+    font-weight:bold;
+}
+.cstyle{
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;  
+}
+.bstyle{
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+.dstyle{
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.event-style{
+    font-family:Helvetica;
+    font-size: 25px;
+    color:grey;
+    margin-top: 1%;
+    margin-bottom:1%;
+}
