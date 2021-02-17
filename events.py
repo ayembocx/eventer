@@ -204,7 +204,7 @@ def login():
         user = User.query.filter_by(username=request.form['username']).first()
         if user is None:
             error = 'Invalid username'
-        elif not check_password_hash(user.pw_hashed, request.form['password']):
+        elif request.form['password'] != user.pw_hashed
             error = 'Invalid password'
         else:
             flash("You have been logged in!")
@@ -227,7 +227,7 @@ def register():
         elif get_userId(request.form['username']) is not None:
             error = 'Username not available'
         else:
-            db.session.add(User(request.form['username'],generate_password_hash(request.form['password'])))
+            db.session.add(User(request.form['username'],request.form['password']))
             db.session.commit()
             flash('You have registered an account and can log in now!')
             return redirect(url_for('mainPage'))
