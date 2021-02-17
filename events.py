@@ -21,7 +21,7 @@ SECRET_KEY = 'development key'
 #app.config.from_envvar('EVENTS_SETTINGS', silent=True)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #silence deprecation warning
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://akacuggfuggebg:b3bec0e1d92f2a7e973f1fe974838d349655a605b71ffdb66a6ae732ae394a13@ec2-34-192-58-41.compute-1.amazonaws.com:5432/doairivml5hh9'
-app.secret_key = os.urandom(24)
+app.secret_key = "uniquekey"
 db = SQLAlchemy(app)
 
 
